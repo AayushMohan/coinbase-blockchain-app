@@ -5,9 +5,8 @@ import Header from "../components/Header";
 const Dashboard = ({ address }) => {
   return (
     <Wrapper>
-      <MainContainer>
-        <Header />
-      </MainContainer>
+      <MainContainer></MainContainer>
+      <Header />
     </Wrapper>
   );
 };
