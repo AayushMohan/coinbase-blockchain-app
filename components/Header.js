@@ -3,9 +3,16 @@ import React from "react";
 
 const Header = () => {
   return (
-    <Button style={{ backgroundColor: "#3773f5", color: "#000" }}>
-      Buy / Sell
-    </Button>
+    <Wrapper>
+      <Title>Assets</Title>
+      <ButtonsContainer>
+        <Button style={{ backgroundColor: "#3773f5", color: "#000" }}>
+          Buy / Sell
+        </Button>
+
+        <Button>Send / Receive</Button>
+      </ButtonsContainer>
+    </Wrapper>
   );
 };
 
