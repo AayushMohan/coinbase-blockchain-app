@@ -1,7 +1,12 @@
+import styled from "styled-components";
 import React from "react";
 
 const Header = () => {
-  return <div>Header</div>;
+  return (
+    <Button style={{ backgroundColor: "#3773f5", color: "#000" }}>
+      Buy / Sell
+    </Button>
+  );
 };
 
 export default Header;
