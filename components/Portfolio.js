@@ -2,7 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const Portfolio = () => {
-  return <div></div>;
+  return (
+    <PortfolioTable>
+      <TableItem>
+        <Title>Your Assets</Title>
+      </TableItem>
+    </PortfolioTable>
+  );
 };
 
 export default Portfolio;
