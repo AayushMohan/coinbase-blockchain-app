@@ -12,7 +12,34 @@ const Coin = ({ coin }) => {
             <CoinIcon>
               <Image src={coin.logo} alt={coin.name} />
             </CoinIcon>
+            <div>
+              <Primary>{coin.name}</Primary>
+              <Secondary>{coin.sign}</Secondary>
+            </div>
           </NameCol>
+        </div>
+        <div style={{ flex: 2 }}>
+          <Primary>
+            {"$"}
+            {coin.balanceUsd}
+          </Primary>
+          <Secondary>
+            {coin.balanceCoin} {coin.sign}
+          </Secondary>
+        </div>
+        <div style={{ flex: 1 }}>
+          <Primary>
+            {"$"}
+            {coin.priceUsd}
+          </Primary>
+        </div>
+        <div style={{ color: coin.change < 0 ? "#f0616d" : "#26ad75" }}>
+          {coin.change > 0 && "+"}
+          {coin.change}%
+        </div>
+        <div style={{ flex: 1 }}>{coin.allocation}%</div>
+        <div style={{ flex: 0 }}>
+          <BsThreeDotsVertical />
         </div>
       </div>
     </Wrapper>
@@ -26,7 +53,6 @@ const Wrapper = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-
   & > div {
     width: 100%;
     display: flex;
