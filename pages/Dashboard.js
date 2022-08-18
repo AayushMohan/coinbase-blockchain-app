@@ -25,6 +25,7 @@ const Wrapper = styled.div`
   background-color: #0a0b0d;
   color: white;
 `;
+// overflow: hidden;
 
 const MainContainer = styled.div`
   flex: 1;

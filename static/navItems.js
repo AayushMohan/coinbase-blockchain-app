@@ -2,43 +2,43 @@ import {
   AiOutlinePieChart,
   AiOutlinePlusCircle,
   AiOutlineGift,
-} from 'react-icons/ai'
-import { BiTrendingUp } from 'react-icons/bi'
-import { RiCoinsLine, RiNotification3Line } from 'react-icons/ri'
-import { MdWeb } from 'react-icons/md'
-import { BsPersonPlus } from 'react-icons/bs'
+} from "react-icons/ai";
+import { BiTrendingUp } from "react-icons/bi";
+import { RiCoinsLine, RiNotification3Line } from "react-icons/ri";
+import { MdWeb } from "react-icons/md";
+import { BsPersonPlus } from "react-icons/bs";
 
 export const navItems = [
   {
-    title: 'Assets',
+    title: "Assets",
     icon: <AiOutlinePieChart />,
   },
   {
-    title: 'Trade',
+    title: "Trade",
     icon: <BiTrendingUp />,
   },
   {
-    title: 'Pay',
+    title: "Pay",
     icon: <RiCoinsLine />,
   },
   {
-    title: 'For You',
+    title: "For You",
     icon: <MdWeb />,
   },
   {
-    title: 'Learn and earn',
+    title: "Learn and earn",
     icon: <AiOutlinePlusCircle />,
   },
   {
-    title: 'Notifications',
+    title: "Notifications",
     icon: <RiNotification3Line />,
   },
   {
-    title: 'Invite Friends',
+    title: "Invite Friends",
     icon: <BsPersonPlus />,
   },
   {
-    title: 'Send a gift',
+    title: "Send a gift",
     icon: <AiOutlineGift />,
   },
-]
+];

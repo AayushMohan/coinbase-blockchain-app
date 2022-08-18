@@ -1,7 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import Image from "next/image";
+// import Icon from 'react-crypto-icons'
 
 const Coin = ({ coin }) => {
   return (
@@ -32,10 +32,10 @@ const Coin = ({ coin }) => {
             {"$"}
             {coin.priceUsd}
           </Primary>
-        </div>
-        <div style={{ color: coin.change < 0 ? "#f0616d" : "#26ad75" }}>
-          {coin.change > 0 && "+"}
-          {coin.change}%
+          <div style={{ color: coin.change < 0 ? "#f0616d" : "#26ad75" }}>
+            {coin.change > 0 && "+"}
+            {coin.change}%
+          </div>
         </div>
         <div style={{ flex: 1 }}>{coin.allocation}%</div>
         <div style={{ flex: 0 }}>
@@ -53,6 +53,7 @@ const Wrapper = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
+
   & > div {
     width: 100%;
     display: flex;
