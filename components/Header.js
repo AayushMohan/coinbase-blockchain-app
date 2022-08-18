@@ -1,11 +1,19 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useState } from "react";
+import { navItems } from "../static/navItems";
 
-const Header = () => {
+const Header = ({ walletAddress, connectWallet }) => {
+  const { activeIcon, setActiveIcon } = useState(navItems[0].title);
   return (
     <Wrapper>
       <Title>Assets</Title>
       <ButtonsContainer>
+        <WalletLink>
+          <WalletLinkTitle>Wallet Connected</WalletLinkTitle>
+          <WalletAddress>
+            {walletAddress.slice(0, 7)}...{walletAddress.slice(35)}
+          </WalletAddress>
+        </WalletLink>
         <Button style={{ backgroundColor: "#3773f5", color: "#000" }}>
           Buy / Sell
         </Button>
