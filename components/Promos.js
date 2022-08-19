@@ -38,6 +38,7 @@ const OfferCard = styled.div`
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  border-radius: 0.5rem;
 `;
 
 const Title = styled.div`

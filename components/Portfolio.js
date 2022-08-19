@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { coins } from "../static/coins";
@@ -6,10 +6,35 @@ import Coin from "./Coin";
 import BalanceChart from "./BalanceChart";
 
 const Portfolio = () => {
+  const [sanityTokens, setSanityTokens] = useState([]);
+  useEffect(() => {
+    const getCoins = async () => {
+      try {
+        const coins = await fetch(
+          "https://39o9ys0j.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D'coins'%5D%7B%0A%20%20name%2C%0A%20%20usdPrice%2C%0A%20%20contractAddress%2C%0A%20%20symbol%2C%0A%20%20logo%0A%7D"
+        );
+        const tempSanityTokens = await coins.json();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  }, []);
+
   return (
     <Wrapper>
       <Content>
-        <BalanceChart />
+        <Chart>
+          <div>
+            <Balance>
+              <BalanceTitle>Portfolio Balance</BalanceTitle>
+              <BalanceValue>
+                {"$"}
+                {/* {walletBalance.toLocaleString()} */}46,000
+              </BalanceValue>
+            </Balance>
+          </div>
+          <BalanceChart />
+        </Chart>
         <PortfolioTable>
           <TableItem>
             <Title>Your Assets</Title>
@@ -61,6 +86,7 @@ const Content = styled.div`
 const Chart = styled.div`
   border: 1px solid #282b2f;
   padding: 1rem 2rem;
+  border-radius: 0.5rem;
 `;
 
 const Balance = styled.div``;
@@ -74,11 +100,13 @@ const BalanceValue = styled.div`
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0.5rem 0;
+  border-radius: 0.5rem;
 `;
 
 const PortfolioTable = styled.div`
   margin-top: 1rem;
   border: 1px solid #282b2f;
+  border-radius: 0.5rem;
 `;
 
 const Table = styled.div`
