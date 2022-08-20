@@ -15,25 +15,6 @@ const sdk = new ThirdwebSDK(
 );
 
 const Portfolio = () => {
-  const [sanityTokens, setSanityTokens] = useState([]);
-
-  useEffect(() => {
-    const getCoins = async () => {
-      try {
-        const coins = await fetch(
-          "https://39o9ys0j.api.sanity.io/v1/data/query/production?query=*%5B_type%3D%3D'coins'%5D%7B%0A%20%20name%2C%0A%20%20usdPrice%2C%0A%20%20contractAddress%2C%0A%20%20symbol%2C%0A%20%20logo%0A%7D"
-        );
-        const tempSanityTokens = await coins.json();
-        console.log(tempSanityTokens);
-        setSanityTokens(tempSanityTokens.result);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    return getCoins();
-  }, []);
-
   return (
     <Wrapper>
       <Content>
