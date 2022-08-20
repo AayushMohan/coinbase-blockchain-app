@@ -5,7 +5,10 @@ import { coins } from "../static/coins";
 import Coin from "./Coin";
 import BalanceChart from "./BalanceChart";
 
-const Portfolio = () => {
+const Portfolio = ({ thirdWebTokens, sanityTokens, walletAddress }) => {
+  thirdWebTokens[0]
+    .balanceOf(walletAddress)
+    .then((balance) => console.log(Number(balance.displayValue)));
   return (
     <Wrapper>
       <Content>

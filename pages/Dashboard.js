@@ -9,7 +9,7 @@ import { ThirdwebSDK } from "@3rdweb/sdk";
 const sdk = new ThirdwebSDK(
   new ethers.Wallet(
     process.env.NEXT_PUBLIC_METAMASK_KEY,
-    ethers.getDefaultProvider("https://rinkeby.infura.io/v3/")
+    ethers.getDefaultProvider("https://rinkeby.infura.io/v3/#")
   )
 );
 
@@ -33,8 +33,8 @@ const Dashboard = ({ address }) => {
     return getSanityAndThirdWebTokens();
   }, []);
 
-  console.log("Sanity", sanityTokens);
-  console.log("Thirdweb", thirdWebTokens);
+  // console.log("Sanity", sanityTokens);
+  // console.log("Thirdweb", thirdWebTokens);
 
   return (
     <Wrapper>
@@ -45,7 +45,11 @@ const Dashboard = ({ address }) => {
           sanityTokens={sanityTokens}
           thirdWebTokens={thirdWebTokens}
         />
-        <Main />
+        <Main
+          walletAddress={address}
+          sanityTokens={sanityTokens}
+          thirdWebTokens={thirdWebTokens}
+        />
       </MainContainer>
     </Wrapper>
   );
