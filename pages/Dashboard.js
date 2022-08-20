@@ -1,8 +1,17 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Main from "../components/Main";
 import Sidebar from "../components/Sidebar";
+import { ethers } from "ethers";
+import { ThirdwebSDK } from "@3rdweb/sdk";
+
+const sdk = new ThirdwebSDK(
+  new ethers.Wallet(
+    process.env.NEXT_PUBLIC_METAMASK_KEY,
+    ethers.getDefaultProvider("https://rinkeby.infura.io/v3/")
+  )
+);
 
 const Dashboard = ({ address }) => {
   const [sanityTokens, setSanityTokens] = useState([]);
@@ -31,7 +40,11 @@ const Dashboard = ({ address }) => {
     <Wrapper>
       <Sidebar />
       <MainContainer>
-        <Header walletAddress={address} />
+        <Header
+          walletAddress={address}
+          sanityTokens={sanityTokens}
+          thirdWebTokens={thirdWebTokens}
+        />
         <Main />
       </MainContainer>
     </Wrapper>
