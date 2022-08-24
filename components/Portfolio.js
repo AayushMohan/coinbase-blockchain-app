@@ -6,10 +6,6 @@ import Coin from "./Coin";
 import BalanceChart from "./BalanceChart";
 
 const Portfolio = ({ thirdWebTokens, sanityTokens, walletAddress }) => {
-  // thirdWebTokens[2]
-  //   .balance(walletAddress)
-  //   .then((balance) => console.log(Number(balance.displayValue) * 24043));
-
   const tokenToUSD = {};
 
   for (const token of sanityTokens) {
@@ -17,6 +13,15 @@ const Portfolio = ({ thirdWebTokens, sanityTokens, walletAddress }) => {
   }
 
   console.log(tokenToUSD);
+
+  const calculateTotalBalance = async () => {
+    let token = 0;
+
+    for (const token of thirdWebTokens) {
+      const balance = await token.balanceOf(walletAddress);
+      total += Number(balance.displayValue) * tokenToUSD[token.Address];
+    }
+  };
 
   return (
     <Wrapper>
