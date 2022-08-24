@@ -9,7 +9,7 @@ import { ThirdwebSDK } from "@3rdweb/sdk";
 const sdk = new ThirdwebSDK(
   new ethers.Wallet(
     process.env.NEXT_PUBLIC_METAMASK_KEY,
-    ethers.getDefaultProvider("https://rinkeby.infura.io/v3/#")
+    ethers.getDefaultProvider("https://rinkeby.infura.io/v3/")
   )
 );
 
@@ -20,7 +20,7 @@ const Dashboard = ({ address }) => {
   useEffect(() => {
     const getSanityAndThirdWebTokens = async () => {
       const coins = await fetch(
-        "https://39o9ys0j.api.sanity.io/v1/data/query/production?query=*%5B_type%3D%3D'coins'%5D%7B%0A%20%20name%2C%0A%20%20usdPrice%2C%0A%20%20contractAddress%2C%0A%20%20symbol%2C%0A%20%20logo%0A%7D"
+        "https://39o9ys0j.api.sanity.io/v2021-03-25/data/query/production?query=*%5B_type%3D%3D'coins'%5D%7B%0A%20%20name%2C%0A%20%20usdPrice%2C%0A%20%20contractAddress%2C%0A%20%20symbol%2C%0A%20%20logo%0A%7D"
       );
       const sanityTokens = (await coins.json()).result;
       setSanityTokens(sanityTokens);
